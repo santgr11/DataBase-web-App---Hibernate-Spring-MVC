@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.santg.springdemo.entity.Customer;
 import com.santg.springdemo.service.CustomerService;
@@ -51,6 +52,19 @@ public class CustomerController {
 		customerService.saveCustomer(customer);
 		
 		return "redirect:/customer/list";
+	}
+	
+	@GetMapping("/update")
+	public String update(@RequestParam("customerId") int id, Model model) {
+		
+		// get the customer from service
+		Customer customer = customerService.getCustomer(id);
+		
+		// set a customer as a model attribute to pre-populate the form
+		model.addAttribute("customer", customer);
+		
+		// send over to our form
+		return "customer-form";
 	}
 
 }
