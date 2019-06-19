@@ -1,7 +1,9 @@
 # DataBase-web-App---Hibernate-Spring-MVC
 This is a customer tracker web app built using hibernate and spring mvc to practice the use of these frameworks
 
-it covers every part of CRUD
+It covers every part of CRUD
+
+NOTE: the "aop" branch includes some Aspect Oriented Programming to show some info in the log when running the app
 
 ## Customer List (Read)
 This is the main part of the app, it displays every customer in the db in descending order using the last name
